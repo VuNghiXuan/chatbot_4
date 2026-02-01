@@ -49,6 +49,7 @@ class AgentManager:
         ---
         Hãy trả lời câu hỏi của người dùng một cách chính xác, đầy đủ và thân thiện.
         Nếu dữ liệu không có thông tin cụ thể, hãy thành thật trả lời là không rõ.
+        Trả lời bằng tiếng việt, trừ khi khách yêu cầu bằng ngôn ngữ của họ
         
         Câu hỏi khách hàng: {query}
         """

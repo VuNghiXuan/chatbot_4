@@ -7,8 +7,9 @@ pip install langchain-community faiss-cpu sentence-transformers unstructured pyt
 import os
 from langchain_community.document_loaders import DirectoryLoader, UnstructuredWordDocumentLoader, PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.embeddings import HuggingFaceEmbeddings
+# from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
+from langchain_huggingface import HuggingFaceEmbeddings
 
 class VectorEngine:
     def __init__(self, folder_path):
@@ -26,7 +27,7 @@ class VectorEngine:
 
         # 1. Load các file (Hỗ trợ .docx và .pdf)
         # Loader này sẽ quét toàn bộ thư mục
-        loader = DirectoryLoader(self.folder_path, glob="**/*.docx", loader_cls=UnstructuredWordDocumentLoader)
+        loader = DirectoryLoader(self.folder_path, glob="**/[!~]*.docx", loader_cls=UnstructuredWordDocumentLoader)
         documents = loader.load()
         
         if not documents:
